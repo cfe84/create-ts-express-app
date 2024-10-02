@@ -1,5 +1,5 @@
 {
-  "name": "typescript-express-template",
+  "name": "ts-express-template",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -26,6 +26,6 @@
     "express": "^4.21.0"
   },
   "bin": {
-    "typescript-express-template": "cli.js"
+    "ts-express-template": "cli.js"
   }
 }
