@@ -63,13 +63,11 @@ async function runAsync() {
     const targetDir = createSubfolder.toLowerCase() === "y" ? path.join(currentDir, projectName) : currentDir;  // Target directory for the new project
 
     // Check if the target directory already exists
-    if (fs.existsSync(targetDir)) {
-        console.error(`Error: Directory "${projectName}" already exists!`);
-        process.exit(1);
+    if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir);
     }
 
     // Create the project directory
-    fs.mkdirSync(targetDir);
 
     const templateDir = __dirname;  // The directory where the CLI script is located
 
