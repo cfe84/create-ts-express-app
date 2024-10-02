@@ -1,5 +1,5 @@
 {
-  "name": "@cfe84/create-ts-express-app",
+  "name": "typescript-express-template",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -26,6 +26,6 @@
     "express": "^4.21.0"
   },
   "bin": {
-    "create-ts-express-app": "cli.js"
+    "typescript-express-template": "cli.js"
   }
 }
