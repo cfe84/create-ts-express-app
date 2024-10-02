@@ -1,5 +1,5 @@
 {
-  "name": "ts-express",
+  "name": "create-ts-express-app",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
