@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript + Express + Mocha App</title>
+    <script>
+        function fetchData() {
+            fetch('/api/something')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = `Response: ${data.message}`;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to the TypeScript + Express App</h1>
+    <button onclick="fetchData()">Fetch Data from API</button>
+    <div id="result"></div>
+</body>
+</html>

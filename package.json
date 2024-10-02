@@ -1,0 +1,31 @@
+{
+  "name": "ts-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --import=tsx src/index.ts",
+    "dev": "nodemon --watch src -e js,ts,tsx,jsx --exec 'npm run start'",
+    "testmon": "nodemon --watch src -e js,ts,tsx,jsx --exec 'npm run test'",
+    "test": "node --import=tsx --test ./src/**/*.test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4",
+    "nodemon": "^3.1.7",
+    "testdouble": "^3.20.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  },
+  "bin": {
+    "create-ts-express-app": "cli.js"
+  }
+}
