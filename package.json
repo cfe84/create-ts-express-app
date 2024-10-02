@@ -1,5 +1,5 @@
 {
-  "name": "create-ts-express",
+  "name": "@cfe84/create-ts-express",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
