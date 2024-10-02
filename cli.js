@@ -30,14 +30,37 @@ const removeFile = (filePath) => {
     }
 };
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+function LineReader() {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    function questionAsync(question) {
+        return new Promise(resolve => {
+            rl.question(question, (response) => {
+                resolve(response);
+            })
+        });
+    };
+    function destroy() {
+        rl.close();
+    }
+    return {
+        questionAsync,
+        destroy,
+    };
+}
 
-rl.question('Project name: ', (projectName) => {
+async function runAsync() {
+    const lineReader = LineReader();
+    const projectName = await lineReader.questionAsync("Project name >");
+    if (!projectName) {
+        return;
+    }
+    const createSubfolder = await lineReader.questionAsync("Create subfolder (y/N) >");
+
     const currentDir = process.cwd();  // Current directory where command is executed
-    const targetDir = path.join(currentDir, projectName);  // Target directory for the new project
+    const targetDir = createSubfolder.toLowerCase() === "y" ? path.join(currentDir, projectName) : currentDir;  // Target directory for the new project
 
     // Check if the target directory already exists
     if (fs.existsSync(targetDir)) {
@@ -71,5 +94,7 @@ rl.question('Project name: ', (projectName) => {
     removeFile(cliPath);
 
     console.log(`Project "${projectName}" has been created!`);
-    rl.close();
-});
+    lineReader.destroy();
+}
+
+runAsync().then();
