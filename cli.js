@@ -53,11 +53,11 @@ function LineReader() {
 
 async function runAsync() {
     const lineReader = LineReader();
-    const projectName = await lineReader.questionAsync("Project name >");
+    const projectName = await lineReader.questionAsync("Project name> ");
     if (!projectName) {
         return;
     }
-    const createSubfolder = await lineReader.questionAsync("Create subfolder (y/N) >");
+    const createSubfolder = await lineReader.questionAsync("Create subfolder (y/N)> ");
 
     const currentDir = process.cwd();  // Current directory where command is executed
     const targetDir = createSubfolder.toLowerCase() === "y" ? path.join(currentDir, projectName) : currentDir;  // Target directory for the new project
